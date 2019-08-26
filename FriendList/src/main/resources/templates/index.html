@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>MyFriends</title>
+    </head>
+    <body>
+        <main>
+            <h1>My Friends</h1>
+            <ul th:each="friend: ${friends}">
+                <li>
+                    <span th:text="${friend.getFirstName()}"></span>
+                    <span th:text="${friend.getLastName()}"></span>
+                </li>
+            </ul>
+            <h1>Add new friend to list</h1>
+            <form action="#" th:action="@{/index}" th:object="${friend}" method="post">
+                <div>
+                    <label>Firstname: <input type="text" th:field="*{firstName}"></label>
+                </div>
+                <div>
+                    <label>Lastname: <input type="text" th:field="*{lastName}"></label>
+                </div>
+                <div>
+                    <input type="submit">
+                </div>
+            </form>
+        </main>
+    </body>
+</html>
